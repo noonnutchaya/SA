@@ -17,7 +17,6 @@ class DownloadFile extends Component {
             (querySnapshot) => {
                 const data = querySnapshot.docs.map(doc => doc.data());
                 console.log(data); 
-                window.location.href = "/Check"
                 data.forEach(
                     (item) => {
                         if (item.stateWork != 'done') {
