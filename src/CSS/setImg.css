@@ -1,0 +1,75 @@
+ 
+#setBG{
+    width: 100%;
+ }
+
+#setHomeIcon{
+    margin-left: 88%;
+    margin-bottom: 0.9%;
+    width: 12.5%;
+ }
+
+#allBGWelcome {
+  background-color: #ffe1e1;
+}
+
+#setHomeIcon:hover {
+    opacity: 0.75;
+  }
+
+#logoWelcome{
+  width: 25%;
+  margin-left: 37.9%;
+  margin-top: 2%;
+  margin-bottom: -4%;
+}
+
+#logoWelcome:hover {
+  opacity: 0.75;
+}
+
+#logoOrder{
+  width: 20%;
+  margin-right: 15%;
+  margin-left: 22.5%;
+  margin-top: 3%;
+
+
+}
+
+#logoOrder:hover {
+  opacity: 0.75;
+}
+
+#logoCheck{
+  width: 20%;
+  margin-top: 3%;
+
+}
+
+#logoCheck:hover {
+  opacity: 0.75;
+}
+
+#allBgColor{
+  background-color: #ffe1e1;
+}
+
+.setImgBG{
+  background-image: url(../images/welcomePage.png);
+}
+
+#welcomeBotton {
+  margin-top: 20%;
+  margin-left: 40%;
+  margin-bottom: 30%;
+
+  height: 80px;
+  width:  30px;
+}
+
+#welcomeBottonTemp {
+  margin-top: 65%;
+
+}
+
