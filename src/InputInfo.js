@@ -5,13 +5,24 @@ import 'antd/dist/antd.css';
 import './CSS/setImg.css';
 import './CSS/fieldInput.css';
 import { Input } from 'antd';
-import {Button} from 'antd';
+//import {Button} from 'antd';
+import { message, Button } from 'antd';
 import headerOrder from './images/headerOrder.png';
 import footOrder from './images/footOrder.png';
 
 const db = firebase.firestore();
 
 const { TextArea } = Input;
+
+const success = () => {
+    message
+      .loading('Action in progress..', 2.5)
+      .then(() => message.success('Loading finished', 2.5))
+      .then(() => message.info('Thank You For Order :)', 3.5))
+      .then(() => window.location.href = "/Home");
+
+
+  };
 
 
 class InputInfo extends React.Component{
@@ -52,7 +63,8 @@ class InputInfo extends React.Component{
         }) 
         .then(docRef => {
             console.log("add success~") 
-           window.location.href = "/Confirm"
+            success();
+
         })  
         
     }
@@ -79,6 +91,7 @@ class InputInfo extends React.Component{
             [e.target.name] : e.target.value
         }, console.log(this.state))
     }
+
     
     render(){
         
@@ -105,7 +118,9 @@ class InputInfo extends React.Component{
                     <div> <FileUpload returnFileUrl={this.fileLink} /> </div>
 
                     <div className="SumbitButton">
+                        {/* <Button onClick={success}>SUBMIT</Button> */}
                         <Button type="dashed" shape="round" onClick={this.addEventListener} class="btn btn-primary">SUBMIT</Button>
+
                     </div>
 
                 </div>
