@@ -11,7 +11,7 @@ import seccessPage from './images/seccessPage.png';
 import DownloadFile from './DownloadFile';
 import './CSS/setImg.css';
 import SignUp from './SignUp';
-
+import VendorPage from './VendorPage';
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
           <Route path='/Confirm'  component = {ShowSeccessPage} />
           <Route path='/signup' component = {SignUp} />
           <Route path='/Check'  component = {DownloadFile} />
+          <Route path='/vendor' component = {VendorPage} />
         </Switch>
        </Router>
 

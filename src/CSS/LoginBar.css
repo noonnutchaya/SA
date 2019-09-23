@@ -1,0 +1,27 @@
+.form-login{
+    width: 100%;
+    color: brown;
+    border-radius: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 1px solid purple;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0.1rem 0.1rem 10px black;
+    background-color: #fbe3e2;
+    font-family: 'Quicksand', sans-serif;
+}
+.little-space{
+    margin-top: 15%;
+    margin-bottom: 5%;
+}
+
+.desc-label{
+    font-size: 2.5rem;
+}
+
+.form-button{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: auto auto;
+}
