@@ -3,14 +3,38 @@
     width: 100%;
  }
 
+ #setBGcheck{
+  width: 100%;
+  /* top: 50vh; */
+  /* margin-top: 1%; */
+  bottom: 0;
+  position: absolute;
+}
+
+.test{
+  background-color: red;
+  height: 50vh;
+  color: red;
+
+}
+
 #setHomeIcon{
     margin-left: 88%;
     margin-bottom: 0.9%;
     width: 12.5%;
  }
 
+ #setHomeIconCheck{
+  /* margin-left: 88%; */
+  /* margin-bottom: 0.9%; */
+  /* margin-top: 5%; */
+  /* width: 12.5%; */
+}
+
 #allBGWelcome {
   background-color: #ffe1e1;
+  height: 100vh;
+
 }
 
 #setHomeIcon:hover {

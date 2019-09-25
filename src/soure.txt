@@ -1,19 +1,118 @@
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/6.3.1/firebase-app.js"></script>
+import React ,{Component} from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import firebase from './firebase';
+import headCheckPage from './images/headCheckPage.png';
+import footPink from './images/footWelcomePage.png';
+import homeIcon from './images/homeIcon.png';
+import './CSS/setImg.css';
+import './CSS/fieldInput.css';
+import { Input, Tooltip, Icon } from 'antd';
+import { Popconfirm, message,Button } from 'antd';
+import button from 'antd/lib/button/button';
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#reserved-urls -->
+const nameCollection = "CustomerDBtest";
+const db = firebase.firestore();  
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+function confirm(e) {
+    console.log(e);
+    message.error('ลบออเดอร์แล้วค่ะ ขอบคุณค่ะ');
+  }
+  
+  function cancel(e) {
+    console.log(e);
+    message.info('ออเดอร์ยังดำเนินการต่อ :)');
+  }
 
 
-npm install -g firebase-tools
+class DownloadFile extends React.Component {
 
+    checkStateByPhone = (e) => {
+        console.log(e.target.value);
+        this.setState({
+            [e.target.name] : e.target.value
+        }, )
+        const dataList = document.getElementById('fileList');
+        db.collection(nameCollection).where('Phone','==',e.target.value).get().then(
+            (querySnapshot) => {
+                const data = querySnapshot.docs.map(doc => doc.data());
+                console.log(data); 
+                data.forEach(
+                    (item) => {
+                        if (item.stateWork != 'done') {
+                           // var contaner = document.createElement("div");
+                            var node = document.createElement("p");     
+                            var node2 = document.createElement("p");              
+                            //node.href = item.Name; 
+                            var showStateWork = document.createTextNode(item.stateWork + " - ");       
+                            var showSpace = document.createTextNode( " ");         
+                            node.appendChild(showStateWork);       
+                            var showPrice = document.createTextNode("  "+item.Price);        
+                            node.appendChild(showPrice);                        
+                            document.getElementById("fileList").appendChild(node); 
+                            // document.getElementById("fileList").appendChild(node2);
+                            // node.style.fontFamily = 'Georgia', 'Times New Roman', 'Times, serif'; 
 
-firebase login
+                        }
+                       
+                    }
+                );
+            }
+        );
+    }
 
+   
+    render(){
+        return (
+            <div id = "allBGWelcome">
+                <img src={headCheckPage}  id ="setBG" />
 
-firebase init
+                <div className="form-container">
 
-firebase deploy
+                    <div className="wrap-input">
+                        <Input 
+                            onChange={this.checkStateByPhone}  
+                            name="Phone" 
+                            placeholder="Enter your telephone number"
+                            className="m-icon-size"   
+                            prefix={
+                                <Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                            suffix={    
+                                <Tooltip title="เบอร์โทรที่ได้ลงทะเบียนงานไว้">
+                                <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)'  }} />
+                                </Tooltip>  }    
+                        />
+                    </div>
+                    <a id = "fileList" ></a> 
+
+                    <Popconfirm
+    title="ต้องการจะยกเลิกออเดอร์นี้หรือไม่ ?"
+    onConfirm={confirm}
+    onCancel={cancel}
+    okText="Yes"
+    cancelText="No"
+  >
+    <Button type="danger" size={"large"} href="#">
+    CANCEL ORDER  </Button>
+  </Popconfirm>
+
+                    <Link to="/Home"><img src={homeIcon} className="m-icon-size onFooter"/></Link>
+                    
+                </div>
+
+                <img src = {footPink}   id ="setBGcheck" /> 
+
+                
+            </div>
+        );
+    }
+}
+
+export default DownloadFile; 
+var doc = db.collection("CustomerDBtest").doc();
+doc.set({
+    Phone:"123"
+})
+.then(() => { 
+    var theIdIWant = doc.id
+    console.log("theIdIWant");
+})

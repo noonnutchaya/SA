@@ -18,12 +18,11 @@ const success = () => {
     message
       .loading('Action in progress..', 2.5)
       .then(() => message.success('Loading finished', 2.5))
-      .then(() => message.info('Thank You For Order :)', 3.5))
+      .then(() => message.info('Thank You For Order :)', 3))
       .then(() => window.location.href = "/Home");
-
-
   };
 
+var documentId ;
 
 class InputInfo extends React.Component{
     constructor(props){
@@ -32,8 +31,10 @@ class InputInfo extends React.Component{
         this.state = {
             Name : "",
             Info : "",
+            idDoc : "",
             Phone : "",
             stateWork : "order",
+            Price : "รอการตีราคาจากร้านค้า",
             WorkLink : ""
 
         }
@@ -42,7 +43,7 @@ class InputInfo extends React.Component{
     fileLink = (url) =>{
         this.setState({url})
     }
-    
+
     componentDidMount(){
         db.collection('CustomerDB').get().then((snapshot)=>{
             snapshot.forEach(doc=>{
@@ -58,13 +59,19 @@ class InputInfo extends React.Component{
             Name: this.state.Name,
             Info:this.state.Info,
             Phone:this.state.Phone,
-            WorkLink:this.state.url,
+            //WorkLink:this.state.url,
+            Price:this.state.Price,
+            idDoc:this.state.idDoc,
             stateWork:this.state.stateWork
         }) 
         .then(docRef => {
             console.log("add success~") 
-            success();
+            console.log(docRef.id) 
+            documentId = docRef.id
 
+            db.collection('CustomerDBtest').doc(documentId).update({idDoc: documentId})
+            success();
+           
         })  
         
     }

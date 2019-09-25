@@ -29,7 +29,7 @@ class ShowWelcomePage extends React.Component {
             <div id = "allBGWelcome">
 
                 <img src={welcomePage} id ="setBG" />
-                <Link to="/Home"> <img src={welcomeIcon} id="logoWelcome" />  </Link>
+                <Link to="/Login"> <img src={welcomeIcon} id="logoWelcome" />  </Link>
                 <img src={footWelcomePage} id ="setBG" />
 
 

@@ -21,20 +21,44 @@
     padding-left: 46.76%;
  }
 
- #alertStyles {
-    /* width: '500px';
-    max-width: '100%';
-    margin: '0 auto';
-    position: 'fixed';
-    left: '50%';
-    top: '50%';
-    transform: translate((-50%,-50%));
-    z-index: '999';
-    background-color: '#eee';
-    padding: '10px 20px 40px';
-    border-radius: '8px';
-    display: 'flex';
-    flex-direction: 'column'; */
-    padding-top: 20%;
-    background-color: crimson;
+ #fileList, p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* font: xx-large; */
+    font-size: 2rem;
+    color: red;
+    margin-top: 3rem;
+    text-decoration: none;
+ }
+
+ /* width: '30%', position: 'fixed', left: '34%', height: '3%' */
+ .checkInput {
+    width: 30%;
+    position: 'fixed'; 
+    left: 34%;
+
+}
+
+#showCheckState {
+    margin-top: 8%;
+    width: 30%;
+}
+
+.form-container{
+    /* background-color: blueviolet;
+    height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+.m-icon-size{
+    width: 12.5%;
+    /* border: 10px solid black; */
+}
+
+.wrap-input{
+    align-items: center;
+    width: 50%;
 }
