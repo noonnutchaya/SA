@@ -49,6 +49,7 @@ class TableReportStatus extends Component {
                 });
                 console.log(userDataList)
                 console.log(this.state.data)
+                this.setState({ data: userDataList})
             })
         }
     }
