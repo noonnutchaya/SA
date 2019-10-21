@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
-import {Redirect, Link} from "react-router-dom";
-import firebase from './firebase'
 
-import './CSS/LoginBar.css';
-
-const auth = firebase.auth();
-
-class LoginComponent extends Component{
+class ToggleStateButton extends Component{
 
     constructor(){
         super();

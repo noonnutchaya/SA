@@ -12,6 +12,7 @@ import DownloadFile from './DownloadFile';
 import './CSS/setImg.css';
 import SignUp from './SignUp';
 import VendorPage from './VendorPage';
+import ReportOrderPage from './ReportOrderPage';
 
 function App() {
   return (
@@ -28,12 +29,13 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/'   component = {ShowWelcomePage} />
-          <Route path='/Home'     component = {HomePage} />
-          <Route path='/Order'    component = {InputInfo} />
-          <Route path='/Confirm'  component = {ShowSeccessPage} />
+          <Route path='/home'     component = {HomePage} />
+          <Route path='/order'    component = {InputInfo} />
+          <Route path='/confirm'  component = {ShowSeccessPage} />
           <Route path='/signup' component = {SignUp} />
-          <Route path='/Check'  component = {DownloadFile} />
+          <Route path='/check'  component = {DownloadFile} />
           <Route path='/vendor' component = {VendorPage} />
+          <Route path="/reportOrderPage" component = {ReportOrderPage} />
         </Switch>
        </Router>
 
