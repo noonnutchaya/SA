@@ -11,7 +11,6 @@ class TableReportStatus extends Component {
         this.state = {
             data: []
         }
-        this.clkUpdate = this.clkUpdate.bind(this);
    }
 
    componentDidMount(){
@@ -31,35 +30,23 @@ class TableReportStatus extends Component {
         })  
    }
 
-   clkUpdate(word){
-    console.log(this.state.data)
-        return function () {
-            let userDataList = [];
-            db.collection("CustomerDBtest")
-                .where("stateWork", "==", word).onSnapshot(querySnapshot => {
-                querySnapshot.forEach((doc) => {
-                    userDataList.push({
-                        Name: doc.data().Name,
-                        Info: doc.data().Info,
-                        Phone: doc.data().Phone,
-                        Price: doc.data().Price,
-                        StateWork: doc.data().stateWork,
-                        Id: doc.data().idDoc
-                    })
-                });
-                console.log(userDataList)
-                console.log(this.state.data)
-                this.setState({ data: userDataList})
-            })
-        }
+   clkUpdate = (word) =>{
+        db.collection("CustomerDBtest").where("stateWork", "==", word)
+        .onSnapshot((querySnapshot) => {
+        const userDataList = [];
+        querySnapshot.forEach((doc) => {
+            const userData = {
+            Name: doc.data().Name,
+            Info: doc.data().Info,
+            Phone: doc.data().Phone,
+            Price: doc.data().Price,
+            stateWork: doc.data().stateWork
+            }
+            userDataList.push(userData);
+        });
+        this.setState({ data: userDataList })
+        });
     }
-
-    // test = () => {
-    //     console.log("in test")
-    //     console.log(this.state.data)
-    //     this.setState({data: null})
-    //     console.log(this.state.data)
-    // }
 
     renderTableHeader() {
         return <tr>
@@ -131,12 +118,10 @@ class TableReportStatus extends Component {
                   {this.renderTableData()}
                </tbody>
             </table>
-            {/* <button className="btn btn-secondary" onClick={this.test}>Order</button> */}
-
-            <button className="btn btn-secondary" onClick={this.clkUpdate("Order")}>Order</button>
-            <button className="btn btn-secondary" onClick={this.clkUpdate("Doing")}>Doing</button>
-            <button className="btn btn-secondary" onClick={this.clkUpdate("Done")}>Done</button>
-            <button className="btn btn-secondary" onClick={this.clkUpdate("Received")}>Received</button>
+            <button className="btn btn-secondary" onClick={() => this.clkUpdate("Order")}>Order</button>
+            <button className="btn btn-secondary" onClick={() =>this.clkUpdate("Doing")}>Doing</button>
+            <button className="btn btn-secondary" onClick={() =>this.clkUpdate("Done")}>Done</button>
+            <button className="btn btn-secondary" onClick={() =>this.clkUpdate("Received")}>Received</button>
          </div>
       )
    }
