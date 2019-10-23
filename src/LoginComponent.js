@@ -21,14 +21,18 @@ class LoginComponent extends Component{
         const email = form["email"].value;
         const pass = form["password"].value;
 
-        window.alert(email+pass)
+        auth.signInWithEmailAndPassword(email, pass).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // ...
+            console.log("kak"+errorCode+errorMessage)
+        });
 
-        auth.signInWithEmailAndPassword(email, pass).then(function(snapshot){
-            console.log(snapshot.data().code);
-            window.alert('yes');
-        }).catch(function(error){
-            window.alert()
-        })
+        firebase.auth().onAuthStateChanged(user => {
+            if(user) {
+              window.location = '/reportOrderPage'; 
+            }
+          });
     }
 
     cancel = e => {

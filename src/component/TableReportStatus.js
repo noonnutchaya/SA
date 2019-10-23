@@ -36,11 +36,12 @@ class TableReportStatus extends Component {
         const userDataList = [];
         querySnapshot.forEach((doc) => {
             const userData = {
-            Name: doc.data().Name,
-            Info: doc.data().Info,
-            Phone: doc.data().Phone,
-            Price: doc.data().Price,
-            stateWork: doc.data().stateWork
+                Name: doc.data().Name,
+                Info: doc.data().Info,
+                Phone: doc.data().Phone,
+                Price: doc.data().Price,
+                StateWork: doc.data().stateWork,
+                Id: doc.data().idDoc
             }
             userDataList.push(userData);
         });
