@@ -12,6 +12,8 @@ import seccessPage from './images/seccessPage.png';
 import DownloadFile from './DownloadFile';
 import './CSS/setImg.css';
 
+// var d = new Date();
+// console.log(Math.floor( Date.now() / 1000 ));
 
 function App() {
   return (
@@ -42,7 +44,7 @@ function App() {
         </Switch>
        </Router>
 
- 
+
 
 
   );

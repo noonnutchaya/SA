@@ -5,7 +5,6 @@ import 'antd/dist/antd.css';
 import './CSS/setImg.css';
 import './CSS/fieldInput.css';
 import { Input } from 'antd';
-//import {Button} from 'antd';
 import { message, Button } from 'antd';
 import headerOrder from './images/headerOrder.png';
 import footOrder from './images/footOrder.png';
@@ -13,16 +12,20 @@ import footOrder from './images/footOrder.png';
 const db = firebase.firestore();
 
 const { TextArea } = Input;
-
+var timeStampQuotation = Math.floor(Date.now() / 1000) ;
+// console.log(timeStampQuotation);
 const success = () => {
     message
-      .loading('Action in progress..', 2.5)
-      .then(() => message.success('Loading finished', 2.5))
-      .then(() => message.info('Thank You For Order :)', 3))
+      .loading('Action in progress..', 2)
+      .then(() => message.success('Loading finished', 1.8))
+      .then(() => message.success("Order : " + timeStampQuotation, 3))
+      .then(() => message.info('Thank You For Order :)', 1.8))
       .then(() => window.location.href = "/Home");
   };
 
 var documentId ;
+var setQuo ;
+
 
 class InputInfo extends React.Component{
     constructor(props){
@@ -35,7 +38,8 @@ class InputInfo extends React.Component{
             Phone : "",
             stateWork : "order",
             Price : "รอการตีราคาจากร้านค้า",
-            WorkLink : ""
+            WorkLink : "",
+            Quotation : ""
 
         }
     }
@@ -59,17 +63,21 @@ class InputInfo extends React.Component{
             Name: this.state.Name,
             Info:this.state.Info,
             Phone:this.state.Phone,
-            //WorkLink:this.state.url,
+            WorkLink:this.state.url,
             Price:this.state.Price,
             idDoc:this.state.idDoc,
-            stateWork:this.state.stateWork
+            stateWork:this.state.stateWork,
+            Quotation:this.state.Quotation
         }) 
         .then(docRef => {
             console.log("add success~") 
             console.log(docRef.id) 
             documentId = docRef.id
+            console.log(timeStampQuotation);
 
             db.collection('CustomerDBtest').doc(documentId).update({idDoc: documentId})
+            db.collection('CustomerDBtest').doc(documentId).update({Quotation: timeStampQuotation})
+         
             success();
            
         })  
@@ -125,7 +133,7 @@ class InputInfo extends React.Component{
                     <div> <FileUpload returnFileUrl={this.fileLink} /> </div>
 
                     <div className="SumbitButton">
-                        {/* <Button onClick={success}>SUBMIT</Button> */}
+                      
                         <Button type="dashed" shape="round" onClick={this.addEventListener} class="btn btn-primary">SUBMIT</Button>
 
                     </div>
