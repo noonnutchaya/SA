@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TableReportStatus from './component/TableReportStatus';
 import firebase from './firebase.js';
 import {Redirect, } from "react-router-dom";
+import './CSS/reportOrder.css';
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -51,10 +52,9 @@ class ReportOrderPage extends React.Component {
 
   render() {
     return (
-      <div >
+      <div className="container">
         <h1>Work State Report Table</h1>
-        <TableReportStatus></TableReportStatus>
-        {/* <button onClick={() => this.logout()}></button> */}
+        <button onClick={() => this.logout()}>Logout</button>
       </div>
     );
   }
