@@ -13,6 +13,8 @@ import './CSS/setImg.css';
 import SignUp from './SignUp';
 import VendorPage from './VendorPage';
 import ReportOrderPage from './ReportOrderPage';
+import RegistrationForm from './RegistrationForm';
+import LoginCustomerPage from './LoginCustomerPage';
 
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path='/check'  component = {DownloadFile} />
           <Route path='/vendor' component = {VendorPage} />
           <Route path="/reportOrderPage" component = {ReportOrderPage} />
+          <Route path="/portalCustomer" component ={LoginCustomerPage}/>
+          <Route path="/regisCustomer" component ={RegistrationForm}/>
         </Switch>
        </Router>
 

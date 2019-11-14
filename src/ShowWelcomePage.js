@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import welcomePage from './images/welcomePage.png';
 import footWelcomePage from './images/footWelcomePage.png';
 import welcomeIcon from './images/welcomeIcon.png';
+import LoginCustomerPage from './LoginCustomerPage';
 import './CSS/setImg.css';
 
 import {

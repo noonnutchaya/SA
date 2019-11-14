@@ -54,6 +54,7 @@ class ReportOrderPage extends React.Component {
     return (
       <div className="container">
         <h1>Work State Report Table</h1>
+        <TableReportStatus/>
         <button onClick={() => this.logout()}>Logout</button>
       </div>
     );

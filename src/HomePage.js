@@ -17,7 +17,7 @@ class HomePage extends React.Component {
 
                 <img src={headerPink} id ="setBG" />
 
-                <Link to = "/Order">      <img src={orderIcon} id = "logoOrder" />  </Link>
+                <Link to = "/portalCustomer">      <img src={orderIcon} id = "logoOrder" />  </Link>
                 <Link to = "/vendor"> <img src={checkIcon} id = "logoCheck" />  </Link>
 
                 <img src = {footPink} id = "setBG" />
