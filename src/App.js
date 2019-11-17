@@ -1,13 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import './App.css';
-import InputInfo from './InputInfo';
-import FileUpload from './FileUpload';
 import HomePage from './HomePage';
 import ShowWelcomePage from './ShowWelcomePage';
-import firebase from './firebase';
 import ShowSeccessPage from './ShowSeccessPage';
-import seccessPage from './images/seccessPage.png';
 import DownloadFile from './DownloadFile';
 import './CSS/setImg.css';
 import SignUp from './SignUp';
@@ -15,24 +11,17 @@ import VendorPage from './VendorPage';
 import ReportOrderPage from './ReportOrderPage';
 import RegistrationForm from './RegistrationForm';
 import LoginCustomerPage from './LoginCustomerPage';
+import ShowOrderListPage from './ShowOrderListPage';
+import OrderFormWithCheck from './OrderFormWithCheck';
+import TestCollectDataToEmail from './TestCollectDataToEmail';
 
 function App() {
   return (
-      //  <div><InputInfo/></div>
-      //  <div><FileUpload/></div>
-      //  <img src={seccessPage} id="setBG" />
-      //  <div><ShowSeccessPage/></div>
-      //  <div><HomePage/></div>
-
-            //  <div><ShowWelcomePage/></div>
-            //  <div><DownloadFile/></div>
-
-
       <Router>
         <Switch>
-          <Route exact path='/'   component = {ShowWelcomePage} />
+        <Route exact path='/'   component = {ShowWelcomePage} />
           <Route path='/home'     component = {HomePage} />
-          <Route path='/order'    component = {InputInfo} />
+          <Route path='/order'    component = {OrderFormWithCheck} />
           <Route path='/confirm'  component = {ShowSeccessPage} />
           <Route path='/signup' component = {SignUp} />
           <Route path='/check'  component = {DownloadFile} />
@@ -40,6 +29,7 @@ function App() {
           <Route path="/reportOrderPage" component = {ReportOrderPage} />
           <Route path="/portalCustomer" component ={LoginCustomerPage}/>
           <Route path="/regisCustomer" component ={RegistrationForm}/>
+          <Route path="/showOrder" component ={ShowOrderListPage}/>
         </Switch>
        </Router>
 

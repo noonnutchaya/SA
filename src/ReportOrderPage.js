@@ -3,6 +3,7 @@ import TableReportStatus from './component/TableReportStatus';
 import firebase from './firebase.js';
 import {Redirect, } from "react-router-dom";
 import './CSS/reportOrder.css';
+import TableCustomerList from './component/TableCustomerList';
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -53,8 +54,8 @@ class ReportOrderPage extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Work State Report Table</h1>
-        <TableReportStatus/>
+        <h1>Customer List Table</h1>
+        <TableCustomerList/>
         <button onClick={() => this.logout()}>Logout</button>
       </div>
     );

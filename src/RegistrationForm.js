@@ -94,8 +94,8 @@ class RegistrationForm extends React.Component {
                 var errorCode = error.code;
                 var errorMessage = error.message;
         });
-        
-        db.collection("users").add({
+
+        db.collection("Users").add({
             name: form.getFieldValue('customerName'),
             email: email,
             phoneNumber: form.getFieldValue('phone')

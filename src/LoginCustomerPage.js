@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import LoginComponent from "./LoginComponent";
+import LoginCustomerComponent from "./component/LoginCustomerComponent";
 import './CSS/VendorPage.css';
 
 class LoginCustomerPage extends Component {
@@ -8,7 +8,7 @@ class LoginCustomerPage extends Component {
     return (
       <div className="layout">
         <h1 className="title"> ยืนยันตัวตนลูกค้า </h1>
-        <LoginComponent />
+        <LoginCustomerComponent />
         <div className="regis-form">
             <Link to = "/regisCustomer">     
                 <a>Register Account</a>
