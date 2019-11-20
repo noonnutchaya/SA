@@ -13,11 +13,19 @@ import {
     Button,
     Upload,
     Icon,
-    Rate,
+    message,
     Checkbox,
     Row,
     Col,
   } from 'antd';
+
+  const fail = () => {
+    message.warning('กรุณาเลือกไฟล์ที่ต้องการอัพโหลด',3);
+};
+
+const success = () => {
+    message.success('อัพโหลดไฟล์เรียบร้อย');
+  };
 
 export class FileUpload extends Component {
 
@@ -47,10 +55,12 @@ export class FileUpload extends Component {
     }
 
     handleUpload = e => {
-        e.preventDefault() //
-        const { file } = this.state;
-        const uploadTask = storage.ref(`files/${file.name}`).put(file);
-        uploadTask.on('state_changed',
+
+        try {
+            e.preventDefault() 
+            const { file } = this.state;
+            const uploadTask = storage.ref(`files/${file.name}`).put(file);
+            uploadTask.on('state_changed',
 
             (snapshot) => {
                 // progrss function ....
@@ -69,9 +79,15 @@ export class FileUpload extends Component {
                     console.log(url);
                     this.setState({ url });
                     this.props.returnFileUrl(url)
+                    success();
 
                 })
             });
+        }
+        catch {
+            fail();   
+            console.log("error");
+        }
 
     }
 
@@ -91,14 +107,14 @@ export class FileUpload extends Component {
             
                 <p className = "ant-upload-drag-icon" >
 
-                  <Icon type="file-text" />
-                  <Icon type="file-image" />
-                  <Icon type="file-pdf" />
+                  <Icon type="file-text" theme="twoTone" twoToneColor="#CD5C5C" />
+                  <Icon type="file-image" theme="twoTone" twoToneColor="#CD5C5C" />
+                  <Icon type="file-pdf" theme="twoTone" twoToneColor="#CD5C5C" />
                   
                 </p>
 
                 <p className = "ant-upload-text">Click or drag file to this area to upload</p>
-                <p className = "ant-upload-hint">Support for a single upload.</p>
+                <p className = "ant-upload-hint">Support for a single file and .zip upload.</p>
                 <br />
                 <progress value={this.state.progress} max="100"/> 
                 

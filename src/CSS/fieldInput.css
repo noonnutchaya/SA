@@ -62,3 +62,40 @@
     align-items: center;
     width: 50%;
 }
+
+#SetCarousel {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-left: 8%;
+    width: 100%;
+}
+
+#SetFieldCopy {
+    margin-top: 2.5%;
+}
+
+#SetFieldQuo {
+    margin-top: 0.5%;
+    margin-bottom: 2%;
+    margin-left: 43.2%;
+}
+
+#SetSubmitOrder {
+    margin-top: 1.2%;
+    margin-bottom: 2.5%;
+    margin-left: 46.8%;
+}
+
+#emailLogin{
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
+
+#passLogin{
+    margin-bottom: 3%;
+}
+
+#Login{
+    margin-bottom: 29%;
+    margin-left: 140%;
+}

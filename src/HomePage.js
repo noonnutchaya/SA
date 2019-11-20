@@ -6,6 +6,7 @@ import headerPink from './images/headerPink.png';
 import shopName from './images/shopName.png';
 import footPink from './images/footWelcomePage.png';
 import './CSS/setImg.css';
+import './CSS/fieldInput.css';
 
 class HomePage extends React.Component {
 
